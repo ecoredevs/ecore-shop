@@ -3,37 +3,231 @@ body {
   font-family: Arial, sans-serif;
   background: #0f0f0f;
   color: white;
+  background-attachment: fixed;
+}
+.announcement-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 12s linear infinite;
 }
 
+@keyframes scrollText {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.announcement-bar {
+  width: 100%;
+  padding: 8px 20px;
+  text-align: center;
+
+  background: rgba(182, 237, 12, 0.08);
+  border-bottom: 1px solid rgba(182, 237, 12, 0.25);
+
+  color: #b6ed0c;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  position: relative;
+  z-index: 1000;
+}
+/* =========================
+   NAVBAR (GLASS + STICKY)
+========================= */
+
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background: #111;
-  border-bottom: 2px solid #b6ed0c;
+
+  padding: 18px 40px;
+
+  background: rgba(17, 17, 17, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(182, 237, 12, 0.2);
+
+  transition: all 0.25s ease;
 }
 
+.navbar.scrolled {
+  background: rgba(17, 17, 17, 0.75);
+  border-bottom: 1px solid rgba(182, 237, 12, 0.45);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* LOGO */
 .logo {
   color: #b6ed0c;
   font-weight: bold;
   font-size: 20px;
 }
 
+/* NAV LINKS */
 .nav-links a {
   color: white;
   margin: 0 15px;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 .nav-links a:hover {
   color: #b6ed0c;
 }
 
+/* BUTTON BASE */
 .btn {
   background: #b6ed0c;
   color: #111;
   padding: 8px 14px;
   text-decoration: none;
   font-weight: bold;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* =========================
+   HERO SECTION (CLEAN CYBER)
+========================= */
+
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 60%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* GRID OVERLAY */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(#ffffff08 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.2;
+}
+
+/* TAGLINE */
+.tagline {
+  color: #b6ed0c;
+  letter-spacing: 3px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* HERO TITLE */
+.hero-title {
+  font-size: 64px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* SOFT NEON GLOW */
+.hero-title::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #b6ed0c;
+  z-index: -1;
+  filter: blur(6px);
+  opacity: 0.35;
+  transform: translate(2px, 2px);
+}
+
+/* SCAN EFFECT */
+.hero-title::before {
+  content: "";
+  position: absolute;
+  left: -40%;
+  top: 0;
+  width: 40%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(182, 237, 12, 0.15),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  animation: scan 4s infinite;
+}
+
+@keyframes scan {
+  0% { left: -40%; }
+  100% { left: 120%; }
+}
+
+/* SUBTITLE */
+.subtitle {
+  max-width: 600px;
+  margin: 20px auto;
+  color: #aaa;
+  font-size: 16px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons a {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s ease;
+  margin: 5px;
+}
+
+/* PRIMARY */
+.btn.primary {
+  background: #b6ed0c;
+  color: #111;
+  padding: 10px 18px;
+  border-radius: 4px;
+}
+
+/* SECONDARY */
+.btn.secondary {
+  background: transparent;
+  border: 1px solid #b6ed0c;
+  color: #b6ed0c;
+  padding: 10px 18px;
+  border-radius: 4px;
+}
+
+/* HOVER STATES */
+.btn.primary:hover {
+  opacity: 0.85;
+}
+
+.btn.secondary:hover {
+  background: #b6ed0c;
+  color: #111;
+}html {
+  scroll-behavior: smooth;
 }
