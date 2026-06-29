@@ -51,7 +51,7 @@ body {
 }
 
 /* =========================
-   NAVBAR (GLASS STYLE)
+   NAVBAR (FIXED + CENTERED)
 ========================= */
 
 .navbar {
@@ -60,7 +60,6 @@ body {
   z-index: 999;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   padding: 16px 40px;
@@ -71,7 +70,7 @@ body {
 
   border-bottom: 1px solid rgba(182, 237, 12, 0.15);
 
-  transition: all 0.25s ease;
+  position: relative;
 }
 
 .navbar.scrolled {
@@ -84,6 +83,11 @@ body {
    LOGO
 ========================= */
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
 .logo img {
   height: 38px;
   width: auto;
@@ -91,13 +95,18 @@ body {
 }
 
 /* =========================
-   NAV LINKS
+   NAV LINKS (TRUE CENTER FIX)
 ========================= */
 
 .nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
   display: flex;
   gap: 28px;
   align-items: center;
+  white-space: nowrap;
 }
 
 .nav-links a {
@@ -106,6 +115,10 @@ body {
   color: #ccc;
   font-size: 14px;
   transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #fff;
 }
 
 .nav-links a::after {
@@ -119,10 +132,6 @@ body {
   transition: width 0.25s ease;
 }
 
-.nav-links a:hover {
-  color: #fff;
-}
-
 .nav-links a:hover::after {
   width: 100%;
 }
@@ -132,6 +141,7 @@ body {
 ========================= */
 
 .nav-right {
+  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 15px;
