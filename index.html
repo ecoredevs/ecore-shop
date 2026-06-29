@@ -8,14 +8,19 @@
 </head>
 
 <body>
+
+<!-- ================= ANNOUNCEMENT ================= -->
 <div class="announcement-bar">
   <p class="announcement-text">
-  ⚡ New system update live — Ecore Solutions is fully under Maintenence
-</p>
+    ⚡ Welcome to the new Ecore Solutions experience — more features arriving soon.
+  </p>
 </div>
+
 <!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <div class="logo">Ecore Solutions</div>
+  <a href="#home" class="logo">
+    <img src="images/ecore-logo.png" alt="Ecore Solutions">
+  </a>
 
   <nav class="nav-links">
     <a href="#home">Home</a>
@@ -29,41 +34,163 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="home">
-  <div class="hero-content">
+  <div class="container">
+    <div class="hero-content">
 
-    <p class="tagline">SECURE • FAST • CONTROLLED</p>
+      <p class="tagline">SECURE • FAST • CONTROLLED</p>
 
-    <h1 class="hero-title" data-text="Ecore Solutions">
-      Ecore Solutions
-    </h1>
+      <h1 class="hero-title" data-text="Ecore Solutions">
+        Ecore Solutions
+      </h1>
 
-    <p class="subtitle">
-      Next-gen tools, utilities, and systems built for performance and precision.
-    </p>
+      <p class="subtitle">
+        Next-gen tools, utilities, and systems built for performance and precision.
+      </p>
 
-    <div class="hero-buttons">
-      <a href="#products" class="btn primary">View Products</a>
-      <a href="#features" class="btn secondary">Learn More</a>
+      <div class="hero-buttons">
+        <a href="#products" class="btn primary">View Products</a>
+        <a href="#features" class="btn secondary">Learn More</a>
+      </div>
+
     </div>
-
   </div>
 </section>
 
-<!-- ================= PLACEHOLDER SECTIONS ================= -->
-<section id="products"></section>
-<section id="features"></section>
-<section id="contact"></section>
+<!-- ================= PRODUCTS ================= -->
+<section id="products" class="products-section">
+  <div class="container">
 
-<!-- ================= NAVBAR SCROLL SCRIPT ================= -->
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <p>Latest tools and systems from Ecore Solutions</p>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- PRODUCT 1 (FEATURED) -->
+      <div class="product-card featured">
+
+        <span class="badge hot">HOT</span>
+
+        <div class="product-image">
+          <img src="images/system32-card.png" alt="System32">
+        </div>
+
+        <div class="product-info">
+
+          <h3>System32</h3>
+
+          <p class="desc">
+            High-performance Windows utility designed for speed, automation and reliability.
+          </p>
+
+          <div class="product-meta">
+            <span>⚡ Instant Delivery</span>
+            <span>🔄 Lifetime Updates</span>
+          </div>
+
+          <div class="price">
+            <small>Starting at</small>
+            <strong>£19.99</strong>
+          </div>
+
+          <div class="actions">
+            <a href="#" class="btn primary">Buy Now</a>
+            <a href="#" class="btn secondary">Learn More</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PRODUCT 2 -->
+      <div class="product-card">
+
+        <span class="badge new">NEW</span>
+
+        <div class="product-image">
+          <img src="images/nuked-core.png" alt="Nuked Core">
+        </div>
+
+        <div class="product-info">
+
+          <h3>Nuked Core</h3>
+
+          <p class="desc">
+            Advanced system optimization tool for performance tuning and automation.
+          </p>
+
+          <div class="product-meta">
+            <span>⚡ Instant Delivery</span>
+            <span>🔄 Lifetime Updates</span>
+          </div>
+
+          <div class="price">
+            <small>Starting at</small>
+            <strong>£29.99</strong>
+          </div>
+
+          <div class="actions">
+            <a href="#" class="btn primary">Buy Now</a>
+            <a href="#" class="btn secondary">Learn More</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PRODUCT 3 -->
+      <div class="product-card">
+
+        <span class="badge limited">LIMITED</span>
+
+        <div class="product-image">
+          <img src="images/scanner-x.png" alt="Scanner X">
+        </div>
+
+        <div class="product-info">
+
+          <h3>Scanner X</h3>
+
+          <p class="desc">
+            Real-time system analysis engine with deep monitoring capabilities.
+          </p>
+
+          <div class="product-meta">
+            <span>⚡ Instant Delivery</span>
+            <span>🔄 Lifetime Updates</span>
+          </div>
+
+          <div class="price">
+            <small>Starting at</small>
+            <strong>£14.99</strong>
+          </div>
+
+          <div class="actions">
+            <a href="#" class="btn primary">Buy Now</a>
+            <a href="#" class="btn secondary">Learn More</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEXT SECTIONS ================= -->
+<section id="features">
+  <div class="container"></div>
+</section>
+
+<section id="contact">
+  <div class="container"></div>
+</section>
+
+<!-- ================= SCRIPT ================= -->
 <script>
   const navbar = document.querySelector(".navbar");
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 10) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
+    navbar.classList.toggle("scrolled", window.scrollY > 10);
   });
 </script>
 
