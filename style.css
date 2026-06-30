@@ -1,8 +1,42 @@
+/* =========================
+   GLOBAL
+========================= */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #0f0f0f;
   color: white;
+  overflow-x: hidden;
+}
+
+/* =========================
+   PULSE
+========================= */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 0 rgba(182,237,12,0));
+  }
+
+  50% {
+    transform: scale(1.02);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 10px rgba(182,237,12,0.4));
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 0 rgba(182,237,12,0));
+  }
+}
+
+.pulse-section {
+  display: inline-block;
+  animation: pulse 2.5s infinite ease-in-out;
 }
 
 /* =========================
@@ -51,7 +85,7 @@ body {
 }
 
 /* =========================
-   NAVBAR (FIXED + CENTERED)
+   NAVBAR
 ========================= */
 
 .navbar {
@@ -61,6 +95,7 @@ body {
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   padding: 16px 40px;
 
@@ -69,8 +104,6 @@ body {
   -webkit-backdrop-filter: blur(16px);
 
   border-bottom: 1px solid rgba(182, 237, 12, 0.15);
-
-  position: relative;
 }
 
 .navbar.scrolled {
@@ -95,18 +128,14 @@ body {
 }
 
 /* =========================
-   NAV LINKS (TRUE CENTER FIX)
+   NAV LINKS
 ========================= */
 
 .nav-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-
   display: flex;
+  justify-content: center;
   gap: 28px;
-  align-items: center;
-  white-space: nowrap;
+  flex: 1;
 }
 
 .nav-links a {
@@ -137,7 +166,7 @@ body {
 }
 
 /* =========================
-   RIGHT SIDE (ENTER + CART)
+   RIGHT NAV
 ========================= */
 
 .nav-right {
@@ -147,7 +176,10 @@ body {
   gap: 15px;
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
+
 .btn {
   display: inline-block;
   padding: 10px 14px;
@@ -173,7 +205,10 @@ body {
   color: #111;
 }
 
-/* CART */
+/* =========================
+   CART
+========================= */
+
 .cart-icon {
   color: white;
   cursor: pointer;
@@ -232,7 +267,7 @@ body {
 }
 
 .hero-title {
-  font-size: 64px;
+  font-size: clamp(32px, 5vw, 64px);
   font-weight: 800;
 }
 
@@ -275,7 +310,6 @@ body {
 
 .product-card {
   width: 100%;
-  max-width: 300px;
   background: #111;
   border-radius: 14px;
   overflow: hidden;
@@ -283,7 +317,7 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   transition: 0.3s ease;
 
-  justify-self: center;
+  will-change: transform;
 }
 
 .product-card:hover {
@@ -358,13 +392,8 @@ body {
   margin: 4px 0;
 }
 
-/* BUTTONS */
-.buttons {
-  display: flex;
-  gap: 8px;
-}
-
-button {
+/* BUTTONS (SCOPED FIX) */
+.product-card button {
   flex: 1;
   padding: 8px;
   border: none;
@@ -374,7 +403,7 @@ button {
   transition: 0.2s;
 }
 
-button:hover {
+.product-card button:hover {
   transform: translateY(-2px);
 }
 
@@ -413,4 +442,30 @@ button:hover {
 @keyframes shimmer {
   0% { left: -150%; }
   100% { left: 150%; }
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
 }
